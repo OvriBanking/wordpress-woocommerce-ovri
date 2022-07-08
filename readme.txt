@@ -1,27 +1,5 @@
 === OVRI Banking ===
-Author: OVRI SAS
-Author URI: https://www.ovri.com/
-Contributors: ovribanking
-Tags: payment,payments,payment gateway,payment processor,payment processing,checkout,payment pro,merchant account,contrat vad,moyen de paiement,card,credit card,paiement,bezahlsystem,purchase,online payment,ipspayment,ips payment,moneytigo,ovri,ovri banking,stripe,easytransac,payzen,paypal,adyen,mangopay,mollie
-Requires at least: 4.1
-Tested up to: 6.0
-Requires PHP: 7.1
-Stable tag: 1.5.2
-License: GPLv2 or later
-WC Tested up to: 6.0
-WC requires at least: 2.6
-
 🤩 Quickly add OVRI payment forms to accept credit cards in minutes - #1 best Ovri Banking payments plugin! 🚀
-
-== Description ==
-
-= The Best OVRI Payment Forms and Ovri Banking Payments Plugin for WordPress =
-
-The best <a href="https://www.ovri.com/?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">OVRI Banking</a> payment forms and plugin for WordPress that helps you quickly accept credit card payments to grow your business.
-
-This is a payment plugin that connects the OVRI banking solution to your WORDPRESS site in record time. In just a few steps, you can be up and running in no time. Simply create a payment form and start accepting credit cards and other payment types on your WordPress site.
-
-<a href="https://www.ovri.com/?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">Ovri Payment</a> is a drop-in payment flow optimized for the highest conversion. It’s built for desktop, tablet, and mobile devices. It’s continuously tested and updated to offer a frictionless payment experience. It’s also PCI DSS compliant and SCA-ready without any changes to your website.
 
 == Installation ==
 
