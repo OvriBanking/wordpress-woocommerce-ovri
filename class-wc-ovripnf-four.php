@@ -127,9 +127,11 @@ class WC_OvriPnfFour extends WC_Payment_Gateway
   }
 
 
-  /* Payment processing and initiation
- Redirection of the client if the initiation is successful 
- Display of failures on the checkout page in case of error */
+  /**
+   * Payment processing and initiation
+   * Redirection of the client if the initiation is successful 
+   * Display of failures on the checkout page in case of error
+   * */
   public function process_payment($order_id)
   {
     //obtain token for payment processing
@@ -138,15 +140,15 @@ class WC_OvriPnfFour extends WC_Payment_Gateway
     $email = method_exists($order, 'get_billing_email') ? $order->get_billing_email() : $order->billing_email;
     $custo_firstname = method_exists($order, 'get_billing_first_name') ? $order->get_billing_first_name() : $order->billing_first_name;
     $custo_lastname = method_exists($order, 'get_billing_last_name') ? $order->get_billing_last_name() : $order->billing_last_name;
-    $the_order_id = method_exists($order, 'get_id') ? $order->get_id() : $order->id;
-    $the_order_key = method_exists($order, 'get_order_key') ? $order->get_order_key() : $order->order_key;
+    //$the_order_id = method_exists($order, 'get_id') ? $order->get_id() : $order->id;
+    //$the_order_key = method_exists($order, 'get_order_key') ? $order->get_order_key() : $order->order_key;
     $requestToken = array(
       'MerchantKey' => $this->ovri_gateway_api_key,
       'amount' => $order->get_total(),
       'RefOrder' => $order_id,
-      'Customer_Email' => $email,
-      'Customer_FirstName' => $custo_firstname,
-      'Customer_LastName' => $custo_lastname,
+      'Customer_Email' => "$email",
+      'Customer_FirstName' => $custo_firstname ? $custo_firstname : $custo_lastname,
+      'Customer_Name' => $custo_lastname ? $custo_lastname : $custo_firstname,
       'Lease' => '4',
       'urlOK' => get_site_url() . '/?wc-api=wc_ovri_return&mtg_ord=' . $order_id . '',
       'urlKO' => get_site_url() . '/?wc-api=wc_ovri_return&mtg_ord=' . $order_id . '',
@@ -155,11 +157,26 @@ class WC_OvriPnfFour extends WC_Payment_Gateway
     $getToken = $this->getToken($requestToken);
     if (!is_wp_error($getToken)) {
       $results = json_decode($getToken['body'], true);
+      $explanationIS = "";
+      if ($getToken['response']['code'] === 400 || $getToken['response']['code'] === 200) {
+        if ($results['Explanation']) {
+          foreach ($results['Explanation'] as $key => $value) {
+            $explanationIS .= "<br><b>" . $key . "</b> : " . $value;
+          }
+        }
+        if ($results['MissingParameters']) {
+          $explanationIS .= "<br> List of missing parameters : ";
+          foreach ($results['MissingParameters'] as $key => $value) {
+            $explanationIS .= "<b>" . $value . " , ";
+          }
+        }
+      }
       if ($getToken['response']['code'] === 200) {
-        wc_add_notice(__('Ovri : ' . $results['Error_Code'] . ' - ' . $results['Short_Description'] . ' - ' . $results['Full_Description'] . '', 'ovri'), 'error');
+
+        wc_add_notice(__('Ovri : ' . $results['ErrorCode'] . ' - ' . $results['ErrorDescription'] . ' - ' . $explanationIS . '', 'ovri'), 'error');
         return;
       } else if ($getToken['response']['code'] === 400) {
-        wc_add_notice(__('Ovri : ' . $results['ErrorCode'] . ' - ' . $results['ErrorDescription'] . '', 'ovri'), 'error');
+        wc_add_notice(__('Ovri : ' . $results['ErrorCode'] . ' - ' . $results['ErrorDescription'] . ' - ' . $explanationIS . '', 'ovri'), 'error');
         return;
       } else if ($getToken['response']['code'] === 201) {
         return array(

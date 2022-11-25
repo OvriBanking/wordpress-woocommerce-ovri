@@ -3,7 +3,7 @@
 Plugin Name: Ovri Banking
 Plugin URI: https://my.ovri.app
 Description: Accept credit cards in less than 5 minutes
-Version: 1.5.2
+Version: 1.5.4
 Author: OVRI SAS
 Author URI: https://www.ovri.com
 License: OVRI SAS
@@ -11,7 +11,7 @@ Domain Path: /languages
 Text Domain: ovri
 */
 
-define('OvriVersion', "1.5.2");
+define('OvriVersion', "1.5.4");
 
 /* Additional links on the plugin page */
 add_filter('plugin_row_meta', 'ovri_register_plugin_links', 10, 2);
@@ -50,7 +50,7 @@ function ovri_universale_params()
   $baseUriOvriWEB = "https://checkout.ovri.app";
   $baseUriOvriAPI = "https://api.ovri.app/payment";
   $config = array(
-    'Version' => "1.5.2",
+    'Version' => "1.5.4",
     'ApiInitPayment' => $baseUriOvriAPI . "/init_transactions/",
     'ApiGetTransaction' => $baseUriOvriAPI . "/transactions/",
     'ApiGetTransactionByOrderId' => $baseUriOvriAPI . "/transactions_by_merchantid/",

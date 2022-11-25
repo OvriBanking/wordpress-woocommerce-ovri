@@ -6,7 +6,7 @@ Tags: payment,payments,payment gateway,payment processor,payment processing,chec
 Requires at least: 4.1
 Tested up to: 6.0
 Requires PHP: 7.1
-Stable tag: 1.5.2
+Stable tag: 1.5.4
 License: GPLv2 or later
 WC Tested up to: 6.0
 WC requires at least: 2.6
@@ -38,6 +38,7 @@ These steps should be made for module's correct work:
 Fill in "Api Key" and "Secret Key" - these values can be found in https://my.ovri.app. You can leave the rest settings as they go.
 3. After saving your settings, you will have OVRI payments available on your website.
 
+[Redirection Order Confirmation] - The redirection url of the customer once the payment is accepted and the default url of Wordpress/Woocommerce
 
 == Frequently Asked Questions ==
 
@@ -58,6 +59,14 @@ Please note that the OVRI plugin requires a minimum PHP version of 7.1
 1. A unique payment experience
 
 == Changelog ==
+= 1.5.4 =
+* Error correction for split payments, especially on a recurring message
+* Fixed API key recovery on split payments
+
+= 1.5.3 =
+* Fix error ovri displayed
+* Fix for simple checkout substitute last name to name when is not definied
+
 = 1.5.2 =
 * Fix bug on admin page
 
