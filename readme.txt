@@ -4,13 +4,12 @@ Author URI: https://www.ovri.com/
 Contributors: ovribanking
 Tags: payment,payments,payment gateway,payment processor,payment processing,checkout,payment pro,merchant account,contrat vad,moyen de paiement,card,credit card,paiement,bezahlsystem,purchase,online payment,ipspayment,ips payment,moneytigo,ovri,ovri banking,stripe,easytransac,payzen,paypal,adyen,mangopay,mollie
 Requires at least: 4.1
-Tested up to: 6.0
+Tested up to: 6.1.1
 Requires PHP: 7.1
 Stable tag: 1.5.4
 License: GPLv2 or later
-WC Tested up to: 6.0
+WC Tested up to: 7.0
 WC requires at least: 2.6
-=======
 
 🤩 Quickly add OVRI payment forms to accept credit cards in minutes - #1 best Ovri Banking payments plugin! 🚀
 
