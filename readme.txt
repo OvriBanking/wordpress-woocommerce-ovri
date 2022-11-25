@@ -6,7 +6,7 @@ Tags: payment,payments,payment gateway,payment processor,payment processing,chec
 Requires at least: 4.1
 Tested up to: 6.1.1
 Requires PHP: 7.1
-Stable tag: 1.5.4
+Stable tag: 1.5.5
 License: GPLv2 or later
 WC Tested up to: 7.0
 WC requires at least: 2.6
@@ -49,6 +49,9 @@ Please note that the OVRI plugin requires a minimum PHP version of 7.1
 1. A unique payment experience
 
 == Changelog ==
+= 1.5.5 =
+* minor fix
+
 = 1.5.4 =
 * Error correction for split payments, especially on a recurring message
 * Fixed API key recovery on split payments

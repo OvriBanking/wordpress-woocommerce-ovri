@@ -27,8 +27,6 @@ class WC_OvriPnfTwo extends WC_Payment_Gateway
     $this->method_description = __('Accept payment in two instalments! <a href="https://my.ovri.app">Open an account now !</a>', 'ovri');
     $this->ovri_gateway_api_key = $parentConfiguration['ovri_gateway_api_key'];
     $this->ovri_gateway_secret_key = $parentConfiguration['ovri_gateway_secret_key'];
-    echo $this->ovri_gateway_secret_key . "\n";
-    echo $this->ovri_gateway_api_key . "\n";
     // Actions.
     if (version_compare(WOOCOMMERCE_VERSION, '2.0.0', '>=')) {
       add_action('woocommerce_update_options_payment_gateways_' . $this->id, array(&$this, 'process_admin_options'));
